@@ -16,16 +16,16 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="campoEstoque" alignment="CENTER" editable="false" layoutX="239.0" layoutY="122.0" text="0" />
-      <Label layoutX="248.0" layoutY="93.0" text="Quantidade no estoque" />
+      <TextField fx:id="campoEstoque" alignment="CENTER" editable="false" layoutX="240.0" layoutY="114.0" text="0" />
+      <Label layoutX="249.0" layoutY="85.0" text="Quantidade no estoque" />
+      <Button layoutX="296.0" layoutY="154.0" mnemonicParsing="false" onAction="#zerarEstoque" text="Zerar" />
       <Button layoutX="241.0" layoutY="319.0" mnemonicParsing="false" onAction="#abastecerEstoque" text="Abastecer" />
       <Button layoutX="329.0" layoutY="319.0" mnemonicParsing="false" onAction="#venderEstoque" text="Vender" />
-      <Button layoutX="295.0" layoutY="162.0" mnemonicParsing="false" onAction="#zerarEstoque" text="Zerar" />
       <TextField fx:id="campoEntrada" alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="26.0" prefWidth="79.0" text="0" />
       <Button layoutX="235.0" layoutY="263.0" mnemonicParsing="false" onAction="#incrementarQtd" text="+" />
       <Button layoutX="382.0" layoutY="263.0" mnemonicParsing="false" onAction="#decrementarQtd" text="-" />
       <Label layoutX="284.0" layoutY="235.0" text="Quantidade" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="DARKEN" disable="true" fill="#1f93ff00" height="159.0" layoutX="212.0" layoutY="210.0" stroke="BLACK" width="217.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="DARKEN" disable="true" fill="#1f93ff00" height="159.0" layoutX="211.0" layoutY="196.0" stroke="BLACK" width="217.0" />
       <ImageView fitHeight="89.0" fitWidth="51.0" layoutX="14.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@coxinha.png" />
@@ -36,5 +36,6 @@
             <Image url="@coxinha.png" />
          </image>
       </ImageView>
+      <Button layoutX="301.0" layoutY="367.0" mnemonicParsing="false" onAction="#sair" text="Sair" textFill="RED" />
    </children>
 </AnchorPane>

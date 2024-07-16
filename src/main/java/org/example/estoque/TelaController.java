@@ -1,5 +1,6 @@
 package org.example.estoque;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -7,8 +8,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 
+import java.lang.classfile.instruction.ExceptionCatch;
+
 public class TelaController {
-    Maquina maquina = new Maquina();
+
+    Maquina maquina;
+
+    @FXML
+    private void initialize(){
+        maquina = new Maquina();
+        campoEntrada.setText(String.valueOf(maquina.getEstoque()));
+    }
 
     @FXML
     private TextField campoEntrada;
@@ -30,8 +40,16 @@ public class TelaController {
 
     @FXML
     private void abastecerEstoque(){
-        maquina.abastecer(Integer.parseInt(campoEntrada.getText()));
-        campoEstoque.setText(String.valueOf(maquina.getEstoque()));
+        try{
+            maquina.abastecer(Integer.parseInt(campoEntrada.getText()));
+            campoEstoque.setText(String.valueOf(maquina.getEstoque()));
+        } catch (Exception NumberFormatException){
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Quantidade inserida inválida", ButtonType.OK);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.setTitle("Quantidade inválida");
+            alert.setHeaderText("");
+            alert.show();
+        }
     }
 
     @FXML
@@ -42,14 +60,21 @@ public class TelaController {
         } catch (Exception vendaException){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Quantidade de coxinhas insuficiente", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.setTitle("Coxinhas insuficientes");
+            alert.setHeaderText("");
             alert.show();
         }
-
     }
 
     @FXML
     private void zerarEstoque(){
         maquina.zerar();
         campoEstoque.setText(String.valueOf(maquina.getEstoque()));
+    }
+
+    @FXML
+    private void sair(){
+        Platform.exit();
+        System.exit(0);
     }
 }
